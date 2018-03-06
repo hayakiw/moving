@@ -16,17 +16,17 @@ Route::get('/', [
     'uses' => 'RootController@index',
 ]);
 
-// 依頼一覧（カテゴリ、都道府県別に絞込み可）
-Route::get('requests', [
-    'as' => 'request.index',
-    'uses' => 'RequestController@index',
-]);
+// // 依頼一覧（カテゴリ、都道府県別に絞込み可）
+// Route::get('requests', [
+//     'as' => 'request.index',
+//     'uses' => 'RequestController@index',
+// ]);
 
-// 依頼詳細
-Route::get('request/{request}', [
-    'as' => 'request.show',
-    'uses' => 'RequestController@show',
-])->where('request', '[0-9]+');
+// // 依頼詳細
+// Route::get('request/{request}', [
+//     'as' => 'request.show',
+//     'uses' => 'RequestController@show',
+// ])->where('request', '[0-9]+');
 
 // ユーザープロフィール
 Route::get('user/{user}', [
@@ -109,21 +109,21 @@ Route::group(['middleware' => ['auth:web'], 'prefix' => 'my'], function () {
         'uses' => 'AuthController@signout',
     ]);
 
-    Route::post('request/pay', [
-        'as' => 'request.pay',
-        'uses' => 'RequestController@pay',
-    ]);
+    // Route::post('request/pay', [
+    //     'as' => 'request.pay',
+    //     'uses' => 'RequestController@pay',
+    // ]);
 
-    // 買い物依頼
-    Route::resource('requests', 'RequestController');
+    // // 買い物依頼
+    // Route::resource('requests', 'RequestController');
 
-    Route::post('present/pay', [
-        'as' => 'present.pay',
-        'uses' => 'PresentController@pay',
-    ]);
+    // Route::post('present/pay', [
+    //     'as' => 'present.pay',
+    //     'uses' => 'PresentController@pay',
+    // ]);
 
-    // 受注提示
-    Route::resource('presents', 'PresentController');
+    // // 受注提示
+    // Route::resource('presents', 'PresentController');
 
     // お知らせ
     Route::resource('orders', 'OrderController', ['only' => [
