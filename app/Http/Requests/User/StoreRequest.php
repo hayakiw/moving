@@ -45,6 +45,36 @@ class StoreRequest extends Request
                 'between:6,20',
                 'ascii',
             ],
+
+            'zip_code' => [
+                'required',
+                'max:10',
+            ],
+            'prefecture' => [
+                'required',
+                'numeric',
+            ],
+            'city' => [
+                'required',
+                'max:100',
+            ],
+            'address' => [
+                'required',
+                'max:255',
+            ],
+            'building' => [
+                'required',
+                'max:255',
+            ],
+            'building' => [
+                'required',
+                'max:255',
+            ],
+            'tel' => [
+                'required',
+                'max:20',
+            ],
+
         ];
     }
 
@@ -67,6 +97,18 @@ class StoreRequest extends Request
             'password.required' => '“パスワード"は必ず入力してください',
             'password.between' => '"パスワード"は:min〜:max文字で入力してください',
             'password.ascii' => '"パスワード"を正しく入力してください',
+            'zip_code.required' => '"郵便番号"は必ず入力してください',
+            'zip_code.max' => '"郵便番号"は:max文字以内で入力してください',
+            'prefecture.required' => '"都道府県"は必ず入力してください',
+            'prefecture.numeric' => '"都道府県"は正しく入力してください',
+            'city.required' => '"市区町村"は必ず入力してください',
+            'city.max' => '"市区町村"は:max文字以内で入力してください',
+            'address.required' => '"住所"は必ず入力してください',
+            'address.max' => '"住所"は:max文字以内で入力してください',
+            'building.required' => '"建物"は必ず入力してください',
+            'building.max' => '"建物"は:max文字以内で入力してください',
+            'tel.required' => '"連絡先"は必ず入力してください',
+            'tel.max' => '"連絡先"は:max文字以内で入力してください'
         ];
     }
 }

@@ -45,7 +45,7 @@
             </div>
             <ul>
               @foreach($category->children as $child)
-              <li><a href="{{ route('request.index', ['category' => $child->id ]) }}">{{ $child->name }}</a></li>
+              <li><a href="{{-- route('request.index', ['category' => $child->id ]) --}}">{{ $child->name }}</a></li>
               @endforeach
             </ul>
           </div>

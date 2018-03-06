@@ -24,7 +24,16 @@ class UserController extends Controller
     public function store(UserRequest\StoreRequest $request)
     {
         $userData = $request->only([
-            'last_name', 'first_name', 'email', 'password',
+            'last_name',
+            'first_name',
+            'email',
+            'password',
+            'zip_code',
+            'prefecture',
+            'city',
+            'address',
+            'building',
+            'tel',
         ]);
 
         $userData['password'] = bcrypt($userData['password']);
@@ -60,7 +69,7 @@ class UserController extends Controller
                 // ログイン状態にしてリダイレクト
                 auth()->guard('web')->loginUsingId($user->getKey());
                 return redirect()
-                    ->route('item.index')
+                    ->route('root.index')
                     ->with(['info' => '会員登録が完了しました。'])
                 ;
             }

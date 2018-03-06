@@ -41,10 +41,10 @@ return [
             'provider' => 'users',
         ],
 
-        'staff' => [
-            'driver' => 'session',
-            'provider' => 'staffs',
-        ],
+        // 'staff' => [
+        //     'driver' => 'session',
+        //     'provider' => 'staffs',
+        // ],
 
         'admin' => [
             'driver' => 'session',
@@ -80,10 +80,10 @@ return [
             'model' => App\User::class,
         ],
 
-        'staffs' => [
-            'driver' => 'eloquent',
-            'model' => App\Staff::class,
-        ],
+        // 'staffs' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Staff::class,
+        // ],
 
         'admins' => [
             'driver' => 'eloquent',
