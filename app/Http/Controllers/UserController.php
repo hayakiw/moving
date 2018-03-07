@@ -84,6 +84,12 @@ class UserController extends Controller
             ;
     }
 
+    public function edit()
+    {
+        $user = auth()->user();
+        return view('user.edit')->with(['user' => $user]);
+    }
+
     public function editEmail()
     {
         $user = auth()->user();
@@ -128,6 +134,54 @@ class UserController extends Controller
             ->withErrors(['email' => '“メールアドレス”を正しく入力してください'])
         ;
     }
+
+    public function update(UserRequest\UpdateRequest $request)
+    {
+        $user = auth()->user();
+
+        $userData = $request->only([
+            'last_name',
+            'first_name',
+            'zip_code',
+            'prefecture',
+            'city',
+            'address',
+            'building',
+            'tel',
+        ]);
+
+        $errors = [];
+
+        // if ($image && !$image->isValid()) {
+        //     $errors['image'] = $image->getErrorMessage();
+        // }
+
+        \DB::beginTransaction();
+
+        if (empty($errors) && $user->update($userData)) {
+            // if ($image && !$user->saveImage($image)) {
+            //     $errors['image'] = '保存できませんでした';
+            // }
+
+            if (empty($errors)) {
+                \DB::commit();
+
+                return redirect()
+                    ->route('user.show', ['user' => $user->id])
+                    ->with(['info' => 'プロフィールを変更しました。'])
+                ;
+            }
+        }
+
+        \DB::rollBack();
+
+        return redirect()
+            ->back()
+            ->withInput($userData)
+            ->withErrors($errors)
+        ;
+    }
+
 
     public function updateEmail(Request $request, $token)
     {
