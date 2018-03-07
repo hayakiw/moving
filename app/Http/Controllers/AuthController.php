@@ -33,7 +33,7 @@ class AuthController extends Controller
             $this->clearLoginAttempts($request);
 
             return redirect()
-                ->intended('/items')
+                ->intended('/')
                 ->with('info', 'ログインしました。')
                 ;
         }

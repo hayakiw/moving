@@ -1,4 +1,4 @@
-@extends('staff.layout.master')
+@extends('layout.master')
 
 <?php
 

@@ -5,7 +5,7 @@ namespace App\Http\Requests\User;
 use App\Http\Requests\Request;
 use App\User;
 
-class StoreRequest extends Request
+class UpdateRequest extends Request
 {
 
     /**
@@ -34,17 +34,17 @@ class StoreRequest extends Request
                 'required',
                 'max:50',
             ],
-            'email' => [
-                'required',
-                'email',
-                'max:255',
-                'unique:users,email,NULL,id,canceled_at,NULL',
-            ],
-            'password' => [
-                'required',
-                'between:6,20',
-                'ascii',
-            ],
+            // 'email' => [
+            //     'required',
+            //     'email',
+            //     'max:255',
+            //     'unique:users,email,NULL,id,canceled_at,NULL',
+            // ],
+            // 'password' => [
+            //     'required',
+            //     'between:6,20',
+            //     'ascii',
+            // ],
 
             'zip_code' => [
                 'required',
